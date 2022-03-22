@@ -11,5 +11,6 @@ export class MetalinfoComponent implements OnInit {
 
   ngOnInit(): void {
   }
+  
 
 }
