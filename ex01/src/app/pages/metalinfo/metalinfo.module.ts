@@ -5,7 +5,7 @@ import { ShareModule } from "../share/share.module";
 import { MetalinfoRoutingModule } from './metalinfo-routing.module';
 import { MetalinfoComponent } from './metalinfo.component';
 import { MetalinfoEditComponent } from './edit/metalinfo-edit.component';
-import { MetalinfoListComponent } from './list/metalinfo-list.component';
+import { MetalinfoListComponent } from './metalinfo-list/metalinfo-list.component';
 
 
 @NgModule({

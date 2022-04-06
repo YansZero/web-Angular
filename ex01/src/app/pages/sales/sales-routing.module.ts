@@ -1,19 +1,18 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { MetalinfoComponent } from './metalinfo.component';
-import { MetalinfoListComponent } from './metalinfo-list/metalinfo-list.component';
+import { SalesComponent } from './sales.component';
+import { SalesListComponent } from './sales-list/sales-list.component';
 
 const routes: Routes = [
   {
-    path: '',
-    component: MetalinfoComponent,
+    path: '', component: SalesComponent ,
     pathMatch: 'prefix',
     children :[
       {
         path: '',
-        component: MetalinfoListComponent
+        component: SalesListComponent
       }
-    ]
+      ]
   }
 ];
 
@@ -21,4 +20,4 @@ const routes: Routes = [
   imports: [RouterModule.forChild(routes)],
   exports: [RouterModule]
 })
-export class MetalinfoRoutingModule { }
+export class SalesRoutingModule { }
