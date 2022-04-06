@@ -12,6 +12,7 @@ type AOA = any[][];
 export class MetalinfoListComponent implements OnInit {
 
   public dataSet:any=[];
+  public keyword: string='';
 
 
   constructor(myserviceService : MyserviceService) {
@@ -21,49 +22,31 @@ export class MetalinfoListComponent implements OnInit {
 
   ngOnInit(): void {
     this.dataSet=[
-      { key: '1',
-        name: 'John Brown',
-        age: 32,
-        address: 'New York No. 1 Lake Park'
+      {
+        id : 'Al',
+        m_name: '鋁',
+        price_date: '2022-04-06',
+        exchange: 'LME',
+        price: 3414.00
       },
       {
-        key: '2',
-        name: 'Jim Green',
-        age: 42,
-        address: 'London No. 1 Lake Park'
+        id : 'Cu',
+        m_name: '銅',
+        price_date: '2022-04-06',
+        exchange: 'LME',
+        price: 10425.00
       },
       {
-        key: '3',
-        name: 'Joe Black',
-        age: 32,
-        address: 'Sidney No. 1 Lake Park'
+        id : 'Zn',
+        m_name: '鋅',
+        price_date: '2022-04-06',
+        exchange: 'LME',
+        price: 4309.00
       }
     ];
   };
 
-  abc() {
-    this.dataSet=[];
+  search() {
+
   }
-
-
-  // this.dataSet=[
-  //   { key: '1',
-  //     name: 'John Brown',
-  //     age: 32,
-  //     address: 'New York No. 1 Lake Park'
-  //   },
-  //   {
-  //     key: '2',
-  //     name: 'Jim Green',
-  //     age: 42,
-  //     address: 'London No. 1 Lake Park'
-  //   },
-  //   {
-  //     key: '3',
-  //     name: 'Joe Black',
-  //     age: 32,
-  //     address: 'Sidney No. 1 Lake Park'
-  //   }
-  // ];
-
 }

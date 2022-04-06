@@ -1,25 +1,68 @@
-<nz-content>
-  <nz-table #table [nzData]="dataSet">
-    <thead>
-      <tr>
-        <th>Name</th>
-        <th>Age</th>
-        <th>Address</th>
-        <th>Action</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr *ngFor="let data of table.data">
-        <!-- <td>{{ data.name }}</td>
-        <td>{{ data.age }}</td>
-        <td>{{ data.address }}</td> -->
-        <td>
-          <!-- <a>Action 一 {{ data.name }}</a> -->
+<div class="abcm-public" style="padding-top:24px">
+  <div nz-row class="contentShow">
+    <div nz-col [nzMd]="18" [nzLg]="18" [nzXl]="18" style="margin-left:12px">
+      <div style="margin-top:10px">
+        <p>
+          <span class="title" style="margin-left:14px"> 首頁</span>
           <nz-divider nzType="vertical"></nz-divider>
-          <a>Delete</a>
-        </td>
-      </tr>
-    </tbody>
-  </nz-table>
+          <span class="titlepagename">金屬資訊</span>
+        </p>
+      </div>
+      <div style="margin-top:-10px ; margin-left:14px">
+        <h2 class="titleStr">金屬資訊</h2>
+      </div>
+    </div>
+  </div>
+</div>
+<nz-content style="margin-top: 20px;">
+  <div nz-col >
+    <div nz-row>
+      <div nz-col class="search_Str"  >
+        <nz-form-label >關鍵字查詢:</nz-form-label>
+      </div>
+      <div nz-col [nzSpan]="8" style="margin-left:10px"  >
+        <input type="text" [(ngModel)]="keyword" nz-input placeholder="輸入關鍵字查詢">
+      </div>
+      <div nz-col style="margin-left:10px" >
+        <button nz-button type="button" nzType="primary" nzActionAuthorized (click)="search()">
+          <i nz-icon nzType="search" nzTheme="outline"></i>
+          搜尋
+        </button>
+      </div>
+    </div>
+  </div>
+  <div nz-col  style="margin-top: 24px;">
+    <nz-table #table [nzData]="dataSet" class="data_table">
+      <thead>
+        <tr>
+          <th>日期</th>
+          <th>金屬代號-名稱</th>
+          <th>交易所</th>
+          <th class="data_number">收盤價格</th>
+          <th>操作</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let data of table.data">
+
+          <td class="data_price_date">{{ data.price_date }}</td>
+          <td class="data_two_col">
+            {{ data.id }} - {{data.m_name}}
+          </td>
+          <td>
+            {{ data.exchange }}
+          </td>
+          <td class="data_number">
+            {{ data.price | number: '1.0-4'}}
+          </td>
+          <td>
+            <a>修改</a>
+            <nz-divider nzType="vertical"></nz-divider>
+            <a>刪除</a>
+          </td>
+        </tr>
+      </tbody>
+    </nz-table>
+  </div>
 </nz-content>
 
