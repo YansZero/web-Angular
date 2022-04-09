@@ -32,12 +32,17 @@ export class MyserviceService {
     return this.http.post(url,data);
   }
 
-    // get 自己主機方法
+    // get 後端主機方法
     public callOtherGetService(xUrl:string,getInfo:object): Observable<any> {
       return this.http.get(xUrl,{ params: { getInfo: JSON.stringify(getInfo)}});
     }
 
-    // post 自己主機方法
+    // get 後端主機方法 無參數
+    public callOtherGetService2(xUrl:string): Observable<any> {
+      return this.http.get(xUrl);
+    }
+
+    // post 後端主機方法
     public callOtherPostService(xUrl:string,xServiceName:string,xfunction: string,data:object): Observable<any> {
       let url:string = xUrl;
       if (url.charAt(url.length-1)!=='/') {

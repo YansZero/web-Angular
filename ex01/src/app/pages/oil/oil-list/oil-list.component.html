@@ -33,44 +33,45 @@
 
 <nz-content class="list-content">
   <div class="contentShow" style="padding: 12px;">
-    <div nz-col style="margin-top: 10px;">
-      <nz-table #table [nzData]="dataSet" class="data_table">
-        <thead>
-          <tr>
-            <th>公告日期</th>
-            <th class="data_number_2">92 無鉛汽油</th>
-            <!-- <th class="data_number_2">{{ '123' | translate }}</th> -->
-            <th class="data_number_2">95 無鉛汽油</th>
-            <th class="data_number_2">98 無鉛汽油</th>
-            <th class="data_number_2">超級/高級柴油</th>
-            <th>操作</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr *ngFor="let data of table.data">
-
-            <td class="data_price_date">{{ data.price_date }}</td>
-            <td class="data_number_2">
-              {{ data.oil_92 | number: '1.0-4'}}
-            </td>
-            <td class="data_number_2">
-              {{ data.oil_95 | number: '1.0-4' }}
-            </td>
-            <td class="data_number_2">
-              {{ data.oil_98 | number: '1.0-4'}}
-            </td>
-            <td class="data_number_2">
-              {{ data.diesel_fuel | number: '1.0-4'}}
-            </td>
-            <td>
-              <a>修改</a>
-              <nz-divider nzType="vertical"></nz-divider>
-              <a>刪除</a>
-            </td>
-          </tr>
-        </tbody>
-      </nz-table>
-    </div>
+    <nz-spin [nzSpinning]="searchLoading">
+      <div nz-col style="margin-top: 10px;">
+        <nz-table #table [nzData]="dataSet" class="data_table">
+          <thead>
+            <tr>
+              <th>公告日期</th>
+              <th class="data_number_2">92 無鉛汽油</th>
+              <!-- <th class="data_number_2">{{ '123' | translate }}</th> -->
+              <th class="data_number_2">95 無鉛汽油</th>
+              <th class="data_number_2">98 無鉛汽油</th>
+              <th class="data_number_2">超級/高級柴油</th>
+              <th>操作</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let data of table.data">
+              <td class="data_price_date">{{ data.priceDate }}</td>
+              <td class="data_number_2">
+                {{ data.oil92 | number: '1.0-4'}}
+              </td>
+              <td class="data_number_2">
+                {{ data.oil95 | number: '1.0-4' }}
+              </td>
+              <td class="data_number_2">
+                {{ data.oil98 | number: '1.0-4'}}
+              </td>
+              <td class="data_number_2">
+                {{ data.dieselFuel | number: '1.0-4'}}
+              </td>
+              <td>
+                <a>修改</a>
+                <nz-divider nzType="vertical"></nz-divider>
+                <a>刪除</a>
+              </td>
+            </tr>
+          </tbody>
+        </nz-table>
+      </div>
+    </nz-spin>
   </div>
 </nz-content>
 
