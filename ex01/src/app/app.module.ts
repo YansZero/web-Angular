@@ -24,7 +24,7 @@ export function HttpLoaderFactory(http: HttpClient) {
 }
 
 export function createTranslateLoader(http: HttpClient) {
-  return new TranslateHttpLoader(http, './../assets/i18n', '.json');
+  return new TranslateHttpLoader(http, './../assets/i18n/', '.json');
 }
 
 @NgModule({
@@ -42,7 +42,7 @@ export function createTranslateLoader(http: HttpClient) {
           // useFactory: HttpLoaderFactory,
           deps: [HttpClient]
         },
-      defaultLanguage: 'zh',
+      defaultLanguage: 'zh_TW',
     }),
     AppRoutingModule,
     FormsModule,
