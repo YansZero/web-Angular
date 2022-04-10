@@ -5,12 +5,14 @@ import { ShareModule} from '../share/share.module';
 import { OilRoutingModule } from './oil-routing.module';
 import { OilComponent } from './oil.component';
 import { OilListComponent } from './oil-list/oil-list.component';
+import { OilEditComponent } from './oil-edit/oil-edit.component';
 
 
 @NgModule({
   declarations: [
     OilComponent,
-    OilListComponent
+    OilListComponent,
+    OilEditComponent
   ],
   imports: [
     CommonModule,

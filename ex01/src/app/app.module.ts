@@ -13,19 +13,41 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { IconsProviderModule } from './icons-provider.module';
 import { NzLayoutModule } from 'ng-zorro-antd/layout';
 import { NzMenuModule } from 'ng-zorro-antd/menu';
-import { TranslateService,TranslateModule,TranslateLoader} from '@ngx-translate/core';
-import {TranslateHttpLoader} from '@ngx-translate/http-loader';
-// import {  } from './../assets/i18n';
-registerLocaleData(zh);
+// import { TranslateService,TranslateModule,TranslateLoader} from '@ngx-translate/core';
+// import {TranslateHttpLoader} from '@ngx-translate/http-loader';
+import { TranslateModule, TranslateLoader, TranslateCompiler } from '@ngx-translate/core';
+import { TranslateHttpLoader } from '@ngx-translate/http-loader';
+import { TranslateMessageFormatCompiler } from 'ngx-translate-messageformat-compiler';
+
+
+//registerLocaleData(zh_TW);
+// export function HttpLoaderFactory(http: HttpClient) {
+//   return new TranslateHttpLoader(http);
+// }
+// export function createTranslateLoader(http: HttpClient) {
+//   return new TranslateHttpLoader(http, './../assets/i18n/', '.json');
+// }
 
 // AoT requires an exported function for factories
+// 建立TranslateHttpLoader作為語系檔的讀取器
+// 這主要是告訴 ngx-translate 翻譯檔該怎麼載入，用 TranslateHttpLoader 是表示以 HTTP 方式去下載、載入
 export function HttpLoaderFactory(http: HttpClient) {
-  return new TranslateHttpLoader(http);
+  return new TranslateHttpLoader(http, './assets/i18n/', '.json');
 }
 
-export function createTranslateLoader(http: HttpClient) {
-  return new TranslateHttpLoader(http, './../assets/i18n/', '.json');
-}
+// 設定
+const translateConfig = {
+  defaultLanguage: 'zh_TW',  // 預設是英文
+  loader: {
+    provide: TranslateLoader,
+    useFactory: HttpLoaderFactory,  // 前面寫的 Factory
+    deps: [HttpClient]
+  },
+  compiler: {
+    provide: TranslateCompiler,
+    useClass: TranslateMessageFormatCompiler
+  }
+};
 
 @NgModule({
   declarations: [
@@ -34,16 +56,22 @@ export function createTranslateLoader(http: HttpClient) {
   imports: [
     BrowserModule,
     HttpClientModule,
-    TranslateModule.forRoot({
-      loader: {
-          provide: TranslateLoader,
-          useFactory: (createTranslateLoader),
-
-          // useFactory: HttpLoaderFactory,
-          deps: [HttpClient]
-        },
-      defaultLanguage: 'zh_TW',
-    }),
+    TranslateModule.forRoot(translateConfig),  // 模組帶設定
+    // TranslateModule.forRoot({
+    //   loader: {
+    //       provide: TranslateLoader,
+    //       useFactory: (createTranslateLoader),
+    //       deps: [HttpClient]
+    //     },
+    //   defaultLanguage: 'zh_TW',
+    // }),
+    // TranslateModule.forRoot({
+    //   loader: {
+    //       provide: TranslateLoader,
+    //       useFactory: HttpLoaderFactory,
+    //       deps: [HttpClient]
+    //   }
+    //}),
     AppRoutingModule,
     FormsModule,
     BrowserAnimationsModule,

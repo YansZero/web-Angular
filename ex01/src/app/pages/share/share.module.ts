@@ -48,6 +48,7 @@ import { NzModalModule } from 'ng-zorro-antd/modal';
 import { NzProgressModule } from 'ng-zorro-antd/progress';
 import { NzSpinModule } from 'ng-zorro-antd/spin';
 import { NzDividerModule } from 'ng-zorro-antd/divider';
+import {TranslateModule} from '@ngx-translate/core';
 import { AppComponent } from "../../app.component";
 
 
@@ -155,6 +156,7 @@ import { AppComponent } from "../../app.component";
     NzSpinModule,
     NzDividerModule,
     FormsModule,
+    TranslateModule,
     ReactiveFormsModule
   ],
   providers:[

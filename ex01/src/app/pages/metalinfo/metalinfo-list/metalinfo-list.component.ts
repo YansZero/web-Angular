@@ -23,30 +23,34 @@ export class MetalinfoListComponent implements OnInit {
   ngOnInit(): void {
     this.dataSet=[
       {
-        id : 'Al',
+        m_id : 'Al',
         m_name: '鋁',
         price_date: '2022-04-06',
-        exchange: 'LME',
+        exchange_no: 'LME',
         price: 3414.00
       },
       {
-        id : 'Cu',
+        m_id : 'Cu',
         m_name: '銅',
         price_date: '2022-04-06',
-        exchange: 'LME',
+        exchange_no: 'LME',
         price: 10425.00
       },
       {
-        id : 'Zn',
+        m_id : 'Zn',
         m_name: '鋅',
         price_date: '2022-04-06',
-        exchange: 'LME',
+        exchange_no: 'LME',
         price: 4309.00
       }
     ];
   };
 
   search() {
+
+  }
+
+  create() {
 
   }
 }

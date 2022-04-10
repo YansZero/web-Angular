@@ -1,0 +1,54 @@
+{
+  "basic":{
+    "demo":"demo作品",
+    "homepage":"首頁",
+    "operator":"操作",
+    "edit":"修改",
+    "delete":"刪除",
+    "serach":"搜尋",
+    "keyword_serach":"關鍵字查詢",
+    "keyin":"輸入關鍵字查詢",
+    "confrim":"確認",
+    "cancel":"取消",
+    "msg":{
+      "saveOK":"保存成功",
+      "saveNG":"保存失敗",
+      "editOK":"修改成功",
+      "editNG":"修改失敗",
+      "delOK":"保存成功",
+      "delNG":"刪除失敗"
+    }
+  },
+  "oil":{
+    "titlepagename":"油價價格資訊",
+    "title_Str":"油價價格資訊",
+    "button":{
+      "add":"新增油價資料",
+      "edit":"修改油價資料"
+    },
+    "field":{
+      "price_date" : "公告日期",
+      "oil_92" : "92 無鉛汽油",
+      "oil_95" : "95 無鉛汽油",
+      "oil_98" : "98 無鉛汽油",
+      "diesel_fuel": "超級/高級柴油"
+    }
+  },
+  "metal_info":{
+    "titlepagename":"金屬價格資訊",
+    "title_Str":"金屬價格資訊",
+    "button":{
+      "add":"新增金屬交易資料",
+      "edit":"修改金屬交易資料"
+    },
+    "field":{
+      "m_id" : "金屬代號",
+      "m_name" : "名稱",
+      "exchange_no" : "交易所",
+      "price_date" : "交易日期",
+      "price" : "收盤價格"
+    }
+  }
+
+
+}

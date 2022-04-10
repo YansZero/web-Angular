@@ -1,6 +1,8 @@
 import { TranslateService } from '@ngx-translate/core';
-import { Component, OnInit,TemplateRef,OnDestroy } from '@angular/core';
+import { Component, OnInit,TemplateRef, ViewContainerRef,OnDestroy } from '@angular/core';
 import { MyserviceService } from '../../service/myservice.service';
+import { NzModalService } from 'ng-zorro-antd/modal';
+import {OilEditComponent} from './../oil-edit/oil-edit.component';
 
 type AOA = any[][];
 
@@ -21,7 +23,9 @@ export class OilListComponent implements OnInit {
 
   constructor(
     public myserviceService : MyserviceService,
-    public translate : TranslateService
+    public translate : TranslateService,
+    private nzModalService: NzModalService,
+    private viewContainerRef: ViewContainerRef
   ) {
     // this.translate.setDefaultLang('zhTW');
     // this.translate.use('zhTW');
@@ -81,8 +85,42 @@ export class OilListComponent implements OnInit {
     }
   }
 
-  create() {
-    
+  create(): void {
+    const modal =this.nzModalService.create({
+      // nzTitle: '新增',
+      nzTitle: this.translate.instant('oil.button.add'),
+      nzContent: OilEditComponent,
+      nzComponentParams: { // 给modal的参数，注意modal里需要@Input此字段
+          height: '400px'  //控制高度用
+      },
+      nzClosable:false,
+      nzWidth:800,
+      nzFooter: [
+          {
+              label: this.translate.instant('basic.cancel'),
+              onClick: () => { modal.destroy(true)}
+          },
+          {
+              label: this.translate.instant('basic.confrim'),
+              type: 'primary',
+              loading: false,
+              onclick: () => modal.triggerOk()
+              // onClick(component):void {
+              //     this.loading = true; // 让提交按钮显示加载动画，防止重复提交
+              //     //component.submit();
+              // }
+          },
+      ]
+    });
+    modal.afterClose.subscribe((result:Boolean) => {
+        console.log('simpleModal-afterClose-res: ', result);
+        if(result){
+            // 在此写本页面的业务，例如更新表格的数据
+            // this.getData()
+        }
+    });
+
+
   }
 
 }
