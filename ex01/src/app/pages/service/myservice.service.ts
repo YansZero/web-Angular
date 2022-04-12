@@ -112,6 +112,12 @@ export class MyserviceService {
   // delete 自己主機方法
   public callDeleteService(xModule:string,xKind:string,xRest_type:string,data:object): Observable<any> {
     const url:string = this.getMyUrl(xModule,xKind,xRest_type);
+    return this.http.delete(url+'/'+data);
+  }
+
+  // delete 自己主機方法
+  public callDeleteServiceBatch(xModule:string,xKind:string,xRest_type:string,data:object): Observable<any> {
+    const url:string = this.getMyUrl(xModule,xKind,xRest_type);
     return this.http.delete(url,data);
   }
 

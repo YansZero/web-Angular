@@ -56,7 +56,7 @@
             </tr>
           </thead>
           <tbody>
-            <tr *ngFor="let data of table.data">
+            <tr *ngFor="let data of table.data; let rowIndex=index">
               <td class="data_price_date">{{ data.priceDate }}</td>
               <td class="data_number_2">
                 {{ data.oil92 | number: '1.0-4'}}
@@ -73,7 +73,13 @@
               <td>
                 <a>{{ 'basic.edit' | translate }}</a>
                 <nz-divider nzType="vertical"></nz-divider>
-                <a>{{ 'basic.delete' | translate }}</a>
+                <a
+                  nz-popconfirm
+                  nzPopconfirmTitle="{{ 'basic.msg.chk_del' | translate }}"
+                  nzPopconfirmPlacement="bottom"
+                  (nzOnConfirm)="dodel(rowIndex)"
+                  (nzOnCancel)="cancel()"
+                >{{ 'basic.delete' | translate }}</a>
               </td>
             </tr>
           </tbody>

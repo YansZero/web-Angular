@@ -1,6 +1,10 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ShareModule} from '../share/share.module';
+import { NzPopconfirmModule } from 'ng-zorro-antd/popconfirm';
+import { NzInputNumberModule } from 'ng-zorro-antd/input-number';
+import { NzFormModule } from 'ng-zorro-antd/form';
+import { NzDatePickerModule } from 'ng-zorro-antd/date-picker';
 
 import { OilRoutingModule } from './oil-routing.module';
 import { OilComponent } from './oil.component';
@@ -17,6 +21,10 @@ import { OilEditComponent } from './oil-edit/oil-edit.component';
   imports: [
     CommonModule,
     ShareModule,
+    NzPopconfirmModule,
+    NzInputNumberModule,
+    NzFormModule,
+    NzDatePickerModule,
     OilRoutingModule
   ]
 })

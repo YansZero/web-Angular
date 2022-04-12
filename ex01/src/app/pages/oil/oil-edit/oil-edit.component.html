@@ -1,4 +1,66 @@
-<p>oil-edit works!</p>
-<p>oil-edit works!</p>
-<p>oil-edit works!</p>
-<p>oil-edit works!</p>
+<nz-content>
+  <form nz-form [formGroup]="editformGP" class="oil-edit-form" (ngSubmit)="submit()">
+    <nz-form-item >
+      <nz-form-label class="form_caption" [nzSm]="5" [nzXs]="8" nzRequired="true">{{ 'oil.field.price_date' | translate }}</nz-form-label>
+      <nz-form-control [nzSm]="9" [nzXs]="12"
+        nzHasFeedback
+        nzValidatingTip="{{ 'basic.msg.validating' | translate }}"
+        [nzValidateStatus]="chk_priceDate"
+        nzSuccessTip="OK"
+        nzValidatingTip="{{ 'basic.msg.validating' | translate }}"
+        nzErrorTip="{{ 'basic.msg.chk_date' | translate }}"
+      >
+        <nz-date-picker nzMode="date" formControlName="price_date" (ngModelChange)="datechange($event)"></nz-date-picker>
+      </nz-form-control>
+    </nz-form-item>
+    <nz-form-item>
+      <nz-form-label class="form_caption" [nzSm]="5" [nzXs]="8">{{ 'oil.field.oil_92' | translate }}</nz-form-label>
+      <nz-form-control [nzSm]="16" [nzXs]="24">
+        <nz-input-number
+          formControlName="oil_92"
+          [(ngModel)]="oil_92"
+          [nzMin]="0"
+          [nzStep]="0.1"
+          nzPlaceHolder="{{ 'oil.number_input' | translate }}"
+        ></nz-input-number>
+      </nz-form-control>
+    </nz-form-item>
+    <nz-form-item>
+      <nz-form-label class="form_caption" [nzSm]="5" [nzXs]="8">{{ 'oil.field.oil_95' | translate }}</nz-form-label>
+      <nz-form-control [nzSm]="16" [nzXs]="24">
+        <nz-input-number
+          formControlName="oil_95"
+          [(ngModel)]="oil_95"
+          [nzMin]="0"
+          [nzStep]="0.1"
+          nzPlaceHolder="{{ 'oil.number_input' | translate }}"
+        ></nz-input-number>
+      </nz-form-control>
+    </nz-form-item>
+    <nz-form-item>
+      <nz-form-label class="form_caption" [nzSm]="5" [nzXs]="8">{{ 'oil.field.oil_98' | translate }}</nz-form-label>
+      <nz-form-control [nzSm]="16" [nzXs]="24">
+        <nz-input-number
+          formControlName="oil_98"
+          [(ngModel)]="oil_98"
+          [nzMin]="0"
+          [nzStep]="0.1"
+          nzPlaceHolder="{{ 'oil.number_input' | translate }}"
+        ></nz-input-number>
+      </nz-form-control>
+    </nz-form-item>
+    <nz-form-item>
+      <nz-form-label class="form_caption" [nzSm]="5" [nzXs]="8">{{ 'oil.field.diesel_fuel' | translate }}</nz-form-label>
+      <nz-form-control [nzSm]="16" [nzXs]="24">
+        <nz-input-number
+          formControlName="diesel_fuel"
+          [(ngModel)]="diesel_fuel"
+          [nzMin]="0"
+          [nzStep]="0.1"
+          nzPlaceHolder="{{ 'oil.number_input' | translate }}"
+        ></nz-input-number>
+      </nz-form-control>
+    </nz-form-item>
+  </form>
+</nz-content>
+

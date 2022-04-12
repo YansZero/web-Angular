@@ -3,6 +3,7 @@ import { Component, OnInit,TemplateRef, ViewContainerRef,OnDestroy } from '@angu
 import { MyserviceService } from '../../service/myservice.service';
 import { NzModalService } from 'ng-zorro-antd/modal';
 import {OilEditComponent} from './../oil-edit/oil-edit.component';
+import { compileDeclareClassMetadata } from '@angular/compiler';
 
 type AOA = any[][];
 
@@ -91,10 +92,11 @@ export class OilListComponent implements OnInit {
       nzTitle: this.translate.instant('oil.button.add'),
       nzContent: OilEditComponent,
       nzComponentParams: { // 给modal的参数，注意modal里需要@Input此字段
-          height: '400px'  //控制高度用
+          height: '400px',  //控制高度用
+          _cmd:'add'
       },
       nzClosable:false,
-      nzWidth:800,
+      nzWidth:600,
       nzFooter: [
           {
               label: this.translate.instant('basic.cancel'),
@@ -104,6 +106,7 @@ export class OilListComponent implements OnInit {
               label: this.translate.instant('basic.confrim'),
               type: 'primary',
               loading: false,
+              disabled:true,
               onclick: () => modal.triggerOk()
               // onClick(component):void {
               //     this.loading = true; // 让提交按钮显示加载动画，防止重复提交
@@ -112,14 +115,26 @@ export class OilListComponent implements OnInit {
           },
       ]
     });
-    modal.afterClose.subscribe((result:Boolean) => {
-        console.log('simpleModal-afterClose-res: ', result);
-        if(result){
-            // 在此写本页面的业务，例如更新表格的数据
-            // this.getData()
-        }
-    });
+    // modal.afterClose.subscribe((result:Boolean) => {
+    //     console.log('simpleModal-afterClose-res: ', result);
+    //     if(result){
+    //         // 在此写本页面的业务，例如更新表格的数据
+    //         // this.getData()
+    //     }
+    // });
 
+
+  }
+
+  dodel(rowIndex:number) {
+    const key= this.dataSet[rowIndex].priceDate;
+    this.myserviceService.callDeleteService('baseinfo','oil','del',key).subscribe(result=>{
+      let res= result.data;
+      this.ini_search();;
+    });
+  }
+
+  cancel():void {
 
   }
 

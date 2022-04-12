@@ -16,12 +16,16 @@
       "editOK":"修改成功",
       "editNG":"修改失敗",
       "delOK":"保存成功",
-      "delNG":"刪除失敗"
+      "delNG":"刪除失敗",
+      "chk_del":"是否刪除資料?",
+      "chk_date":"錯誤的日期或者日期為空!",
+      "validating":"資料檢查中..."
     }
   },
   "oil":{
     "titlepagename":"油價價格資訊",
     "title_Str":"油價價格資訊",
+    "number_input":"請輸入油價",
     "button":{
       "add":"新增油價資料",
       "edit":"修改油價資料"
